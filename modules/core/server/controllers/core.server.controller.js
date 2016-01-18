@@ -42,31 +42,35 @@ exports.renderNotFound = function (req, res) {
 };
 
 exports.sendContacts = function(req, res){
+   var nodemailer = require('nodemailer');
+   var sgTransport = require('nodemailer-sendgrid-transport');
+   var options = {
+	  auth: {
+    		api_user: 'lardpvo',
+    		api_key: 'Jutro12!'
+ 	 }
+	};
 
-  var nodemailer = require('nodemailer');
-  var smtpTransport = require('nodemailer-smtp-transport');
+var client = nodemailer.createTransport(sgTransport(options));
 
-  var transporter = nodemailer.createTransport('smtps://hdizdarevic%40gmail.com:tropa12@smtp.gmail.com');
+var email = {
+  from: req.body.from,
+  to: 'haris@hdmsoftware.com',
+  subject: 'Hello from LightCoder',
+  text: req.body.message
+};
 
- 
-  var mailOptions = {
-      to : 'haris@hdmsoftware.com',
-      subject : req.body.from,
-      text : req.body.message
-  }
-
-  console.log(mailOptions);
-
-  transporter.sendMail(mailOptions, function(error, response){
-      if(error){
-        console.log(error);
-      res.end("error");
-      }else{
-        console.log("Message sent: " + response.message);
-      res.end("sent");
-      }
-  });
-
-
-  console.log("in send contacts:" + req.body.from);
+client.sendMail(email, function(err, info){
+    if (err ){
+      console.log(err);
+      res.send(err);
+    }
+    else {
+      res.sendStatus(200);
+      console.log('Message sent: ');
 }
+ 
+ 
+  console.log("in send contacts:" + req.body.from);
+});
+};

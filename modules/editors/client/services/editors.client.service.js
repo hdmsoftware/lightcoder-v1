@@ -34,7 +34,7 @@ angular.module('editors').factory("Languages", [function() {
       {id:9, name:"VB.NET" , text:"text/x-vb", mode:"vbnet"},
       {id:10, name:"Objective-C" ,text:"text/x-objectivec", mode:"objectivec"},
       {id:11, name:"Perl", text:"text/x-perl", mode:"perl"}
-  ]
+  ];
 }]);
 
 angular.module('editors').factory("Codes", [function() {
@@ -54,7 +54,7 @@ angular.module('editors').factory("Codes", [function() {
     "Objective-C": "#include <Foundation/Foundation.h>\n\n@interface Test\n+ (const char *) classStringValue;\n@end\n\n@implementation Test\n+ (const char *) classStringValue;\n{\n    return \"Hey!\";\n}\n@end\n\nint main(void)\n{\n    printf(\"%s\\n\", [Test classStringValue]);\n    return 0;\n}",
     "Scala": "object HelloWorld {def main(args: Array[String]) = println(\"Hello from Scala\")}",
     "VB.NET": "Imports System\n\nPublic Class Test\n\tPublic Shared Sub Main() \n    \tSystem.Console.WriteLine(\"Hello\")\n\tEnd Sub\nEnd Class"
-  }
+  };
 }]);
 
 

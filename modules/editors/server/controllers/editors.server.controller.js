@@ -51,7 +51,7 @@ var path    = require('path'),
         languageName :compilers.compilerArray[languageid][3],
         extraArguments: compilers.compilerArray[languageid][4],
         standardInput : stdin
-    }
+    };
 
     var sandboxRunner = new sandbox(sandboxData);
 
@@ -62,7 +62,7 @@ var path    = require('path'),
 
         if (err) {
            // do some hiding of internals with replacing "mountfolder"
-            errFileData.replace("/mountfolder/","")
+            errFileData.replace("/mountfolder/","");
             res.status(500).send("Compile time error:" + errFileData);
 
         } else {
@@ -74,7 +74,7 @@ var path    = require('path'),
         }
     });
 
- }
+ };
 
 /**
  * Create a editor

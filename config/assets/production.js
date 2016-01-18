@@ -19,6 +19,7 @@ module.exports = {
         'public/lib/ace-builds/src-min-noconflict/ace.js',
          'public/lib/ace-builds/src-min-noconflict/ext-language_tools.js',
         'public/lib/angular-ui-ace/ui-ace.js',
+         'public/lib/lodash/dist/lodash.min.js',
         'public/lib/angular-lodash-module/angular-lodash-module.js'
       ]
     },

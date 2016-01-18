@@ -62,7 +62,7 @@ angular.module('editors').controller('EditorsController', ['$scope', '$statePara
         });
 
        }
-    }
+    };
 
 
     // Create new Editor
