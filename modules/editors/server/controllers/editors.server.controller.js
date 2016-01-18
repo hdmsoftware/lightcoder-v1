@@ -66,9 +66,16 @@ var path    = require('path'),
             res.status(500).send("Compile time error:" + errFileData);
 
         } else {
+            // do some hiding of internals with replacing "mountfolder" and
+            // masaging vb.net output message
+	    var temp = data.replace("/mountfolder/","");
+	    if (languageid  === 9) //if vb.net
+	    {
+	        temp = temp.split(/\r?\n/)[3];
+            }
+
             res.send({
-                // do some hiding of internals with replacing "mountfolder"
-                output: data.replace("/mountfolder/",""),
+                output: temp,
                 err: err
             });
         }
