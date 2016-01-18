@@ -34,8 +34,9 @@ echo "NodeJS setup completed"
 # Docker start - give permissions to execution script
 #######################################################################################
 
-chmod 777 ../server/dockertimeout.sh
-chmod 777 ../server/bashscripts/script.sh
+chmod 777 ../modules/common/dockertimeout.sh
+chmod 777 ../modules/common/bashscripts/script.sh
+chmod 777 ../modules/common/bashscripts/javaRunner.sh
 chmod 777 create_container.sh
 
 ./create_container.sh 
