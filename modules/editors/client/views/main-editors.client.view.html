@@ -1,0 +1,70 @@
+<section ng-controller="EditorsController">
+  <div class="page-header">
+
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title pull-left">
+        <div class="dropdown">
+          <select ng-model="selectedLanguage" ng-change="change(selectedLanguage)" >
+            <option value="">Select a language</option>                                
+            <option ng-repeat="language in languages" 
+            value="{{language.name}}" 
+            ng-selected="{{language.name == selectedLanguage}}">
+            {{language.name}}
+          </option>
+        </select> <label class="control-label-sm">{{message}}</label>
+      </div>
+    </h3>
+    <div class="clearfix"></div>
+
+  </div>
+
+  <div class="panel-body"> 
+    <div class="row">
+      <div class="col-md-10">
+        <div ui-ace="{
+        onLoad: aceLoaded,
+        showPrintMargin: false,
+        require: ['ace/ext/language_tools'],
+        advanced: {
+        enableSnippets: true,
+        enableBasicAutocompletion: true,
+        enableLiveAutocompletion: true
+      }
+
+    }"  ng-model="aceValue">
+  </div>
+</div>
+<div class="col-md-2">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <label class="control-label pull-left">
+
+        stdin</label> 
+        <div class="clearfix"></div>
+      </div>
+      <div class="panel-body">
+       <textarea class="form-control" rows="5" style="min-width: 100%"  id="stdin"></textarea>
+     </div>
+   </div>
+ </div>
+
+</div>
+
+</div>
+<div class="panel-footer"> <button class="btn btn-primary btn-md pull-right" ng-click="compile()">Compile</button>
+<div class="clearfix"></div>
+</div>
+
+</div> <!-- end panel -->
+
+<div class="alert alert-warning text-center" id="result">
+  <label class="control-label-sm pull-left">Result:</label>
+  <div class="clearfix"></div>
+  <label class="control-label-sm pull-left">{{result}}</label>
+  <div class="clearfix"></div>
+  
+</div>
+
+</section>
