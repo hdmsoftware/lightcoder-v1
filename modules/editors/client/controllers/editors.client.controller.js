@@ -4,7 +4,9 @@
 angular.module('editors').controller('EditorsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Editors','Languages','Codes','_',
   function ($scope, $stateParams, $location, Authentication, Editors, Languages, Codes, _) {
     $scope.authentication = Authentication;
-
+    $scope.loader = {
+      loading: false,
+    };
     $scope.languages = Languages;
     $scope.selectedLanguage = $stateParams.language; 
 
@@ -52,11 +54,14 @@ angular.module('editors').controller('EditorsController', ['$scope', '$statePara
           language: $scope.languageId 
         });
 
-       
+        $scope.loader.loading = true ;
+
         editor.$compileit(function (response) {
+          $scope.loader.loading = false ;
           $scope.result = response.output;
           //console.log(response.output);
         }, function (errorResponse) {
+	  $scope.loader.loading = false ;
           //console.log("Error:" + errorResponse.data);
           $scope.result = errorResponse.data;
         });

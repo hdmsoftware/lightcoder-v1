@@ -19,6 +19,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       $http.post('/sendcontact', $scope.contact).success(function (response) {
         // If successful we assign the response to the global user model
         //$scope.authentication.user = response;
+        $scope.contact = {};
         $scope.showSuccessAlert = true;
         console.log("Send contact success");
         // And redirect to the previous or home page
