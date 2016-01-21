@@ -320,21 +320,21 @@ var sandbox = function(sandboxData) {
 				//
 				// remove the temp user directory
 				//
-				// exec("rm -r " + self.fullPathToTemp, function(err, data) {
-				// 	if (err) {
-				// 		console.log(sandboxError.errorremovingtemp);
+				exec("rm -r " + self.fullPathToTemp, function(err, data) {
+					if (err) {
+						console.log(sandboxError.errorremovingtemp);
 
-				// 		deferred.reject({
-				// 				error: err,
-				// 				data: null,
-				// 				time: null,
-				// 				compilationerrors: null
-				// 		});
+						deferred.reject({
+								error: err,
+								data: null,
+								time: null,
+								compilationerrors: null
+						});
 
-				// 	} else {
-				// 		//console.log("Success..");
-				// 	}
-				// });
+					} else {
+						//console.log("Success..");
+					}
+				});
 
 
 				clearInterval(intid);
