@@ -51,8 +51,11 @@ angular.module('editors').controller('EditorsController', ['$scope', '$statePara
          
         var editor = new Editors({ 
           code: $scope.aceValue,
-          language: $scope.languageId 
+          language: $scope.languageId,
+          stdin : $scope.stdin 
         });
+
+        console.log(editor);
 
         $scope.loader.loading = true ;
 

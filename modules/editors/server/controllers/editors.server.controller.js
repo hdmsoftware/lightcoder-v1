@@ -24,7 +24,9 @@ var path    = require('path'),
     var languageid = req.body.language;
 
 
-    var stdin     = ""; // we might need this in the future for compiled programs
+    var stdin     = req.body.stdin; // we might need this in the future for compiled programs
+
+    console.log("stdin:" + stdin);
 
     //
     // folder in which the temporary folder will be saved.
@@ -62,6 +64,10 @@ var path    = require('path'),
 
         if (err) {
            // do some hiding of internals with replacing "mountfolder"
+           if ( !errFileData ){
+            errFileData = "There was an error processing the request.";
+           }
+
             errFileData.replace("/mountfolder/","");
             res.status(500).send("Compile time error:" + errFileData);
 

@@ -159,9 +159,9 @@ var sandbox = function(sandboxData) {
 
 		var deferred = q.defer();
 
-		var userStanardInputFile = self.fullPathToTemp + "/inputFile";
+		var userStandardInputFile = self.fullPathToTemp + "/inputFile";
 
-		fs.writeFile(userStanardInputFile, self.standardInput, function(error) {
+		fs.writeFile(userStandardInputFile, self.standardInput, function(error) {
 			if (error) {
 				deferred.reject(error + new Error(error.stack || error));
 			} else {

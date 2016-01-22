@@ -22,7 +22,7 @@
 
   <div class="panel-body"> 
     <div class="row">
-      <div class="col-md-10">
+      <div class="col-md-9">
         <div ui-ace="{
         onLoad: aceLoaded,
         showPrintMargin: false,
@@ -36,7 +36,7 @@
     }"  ng-model="aceValue">
   </div>
 </div>
-<div class="col-md-2">
+<div class="col-md-3">
   <div class="panel panel-default">
     <div class="panel-heading">
       <label class="control-label pull-left">
@@ -45,7 +45,7 @@
         <div class="clearfix"></div>
       </div>
       <div class="panel-body">
-       <textarea class="form-control" rows="5" style="min-width: 100%"  id="stdin"></textarea>
+      <textarea class="form-control" rows="6" style="min-width: 100%"  ng-model="stdin"></textarea>
     </div></div></div></div> </div><div class="panel-footer"> <button class="btn btn-primary btn-md pull-right" ng-click="compile()">Run<i class="fa fa-spinner fa-spin" ng-show="loader.loading" ng-class="{'fa-spin': loader.loading}"></i></button><div class="clearfix"></div></div>
 </div> <!-- end panel -->
 
