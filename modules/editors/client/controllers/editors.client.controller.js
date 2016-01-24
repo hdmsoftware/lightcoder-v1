@@ -55,8 +55,6 @@ angular.module('editors').controller('EditorsController', ['$scope', '$statePara
           stdin : $scope.stdin 
         });
 
-        console.log(editor);
-
         $scope.loader.loading = true ;
 
         editor.$compileit(function (response) {
