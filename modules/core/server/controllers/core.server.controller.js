@@ -46,8 +46,8 @@ exports.sendContacts = function(req, res){
    var sgTransport = require('nodemailer-sendgrid-transport');
    var options = {
 	  auth: {
-    		api_user: 'lardpvo',
-    		api_key: 'Jutro12!'
+    		api_user: '',
+    		api_key: ''
  	 }
 	};
 
